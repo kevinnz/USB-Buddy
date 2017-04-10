@@ -11,6 +11,10 @@
 		BEEDFE131E9B6671006BB1D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE121E9B6671006BB1D5 /* ViewController.swift */; };
 		BEEDFE151E9B6671006BB1D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEDFE141E9B6671006BB1D5 /* Assets.xcassets */; };
 		BEEDFE181E9B6671006BB1D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEDFE161E9B6671006BB1D5 /* Main.storyboard */; };
+		BEEDFE211E9B712B006BB1D5 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEDFE201E9B712B006BB1D5 /* IOKit.framework */; };
+		BEEDFE241E9B714E006BB1D5 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE231E9B714E006BB1D5 /* Empty.m */; };
+		BEEDFE261E9B71C2006BB1D5 /* USBWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE251E9B71C2006BB1D5 /* USBWatcher.swift */; };
+		BEEDFE281E9B729F006BB1D5 /* Watcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE271E9B729F006BB1D5 /* Watcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,12 @@
 		BEEDFE141E9B6671006BB1D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEEDFE171E9B6671006BB1D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEEDFE191E9B6671006BB1D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEEDFE201E9B712B006BB1D5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		BEEDFE221E9B714E006BB1D5 /* USB Buddy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "USB Buddy-Bridging-Header.h"; sourceTree = "<group>"; };
+		BEEDFE231E9B714E006BB1D5 /* Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
+		BEEDFE251E9B71C2006BB1D5 /* USBWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USBWatcher.swift; sourceTree = "<group>"; };
+		BEEDFE271E9B729F006BB1D5 /* Watcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watcher.swift; sourceTree = "<group>"; };
+		BEEDFE291E9B75C9006BB1D5 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEDFE211E9B712B006BB1D5 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +49,7 @@
 			children = (
 				BEEDFE0F1E9B6671006BB1D5 /* USB Buddy */,
 				BEEDFE0E1E9B6671006BB1D5 /* Products */,
+				BEEDFE1F1E9B712B006BB1D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,12 +65,25 @@
 			isa = PBXGroup;
 			children = (
 				BEEDFE101E9B6671006BB1D5 /* AppDelegate.swift */,
+				BEEDFE231E9B714E006BB1D5 /* Empty.m */,
 				BEEDFE121E9B6671006BB1D5 /* ViewController.swift */,
 				BEEDFE141E9B6671006BB1D5 /* Assets.xcassets */,
 				BEEDFE161E9B6671006BB1D5 /* Main.storyboard */,
 				BEEDFE191E9B6671006BB1D5 /* Info.plist */,
+				BEEDFE221E9B714E006BB1D5 /* USB Buddy-Bridging-Header.h */,
+				BEEDFE251E9B71C2006BB1D5 /* USBWatcher.swift */,
+				BEEDFE271E9B729F006BB1D5 /* Watcher.swift */,
+				BEEDFE291E9B75C9006BB1D5 /* MyPlayground.playground */,
 			);
 			path = "USB Buddy";
+			sourceTree = "<group>";
+		};
+		BEEDFE1F1E9B712B006BB1D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEEDFE201E9B712B006BB1D5 /* IOKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +119,7 @@
 					BEEDFE0C1E9B6671006BB1D5 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = LX7HK8V3RS;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -133,8 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEDFE241E9B714E006BB1D5 /* Empty.m in Sources */,
 				BEEDFE131E9B6671006BB1D5 /* ViewController.swift in Sources */,
+				BEEDFE281E9B729F006BB1D5 /* Watcher.swift in Sources */,
 				BEEDFE111E9B6671006BB1D5 /* AppDelegate.swift in Sources */,
+				BEEDFE261E9B71C2006BB1D5 /* USBWatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,12 +277,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LX7HK8V3RS;
 				INFOPLIST_FILE = "USB Buddy/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.katiposec.USB-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "USB Buddy/USB Buddy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -262,12 +296,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LX7HK8V3RS;
 				INFOPLIST_FILE = "USB Buddy/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.katiposec.USB-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "USB Buddy/USB Buddy-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
