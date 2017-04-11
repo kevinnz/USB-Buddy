@@ -11,6 +11,8 @@ import AppKit
 class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
     
     var showNote = false
+    var useTwilio = false
+    var useSlack = false
     
     private var usbWatcher: USBWatcher!
     override init() {
@@ -19,27 +21,29 @@ class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
     }
     
     func deviceAdded(_ device: io_object_t) {
-        let message = "device added: \(device.name() ?? "<unknown>")"
-        print(message)
-        if showNote {
-            let title = "Device Added"
-            let msg = device.name() ?? "<unknown>"
-            showNotification(title, message: msg)
-        }
+        let title = "Device Added"
+        let msg = device.name() ?? "<unknown>"
+        showNotification(title, message: msg)
     }
     
     func deviceRemoved(_ device: io_object_t) {
-        let message = "device removed: \(device.name() ?? "<unknown>")"
-        print(message)
-        if showNote {
-            let title = "Device Removed"
-            let msg = device.name() ?? "<unknown>"
-            showNotification(title, message: msg)
-        }
+        let title = "Device Removed"
+        let msg = device.name() ?? "<unknown>"
+        showNotification(title, message: msg)
     }
     
     func showNotification(_ title: String, message: String) -> Void {
         
+        if showNote {
+            localNotification(title, message: message)
+        }
+        
+        if useTwilio {
+            sendTwilio(title, message: message)
+        }
+    }
+
+    func localNotification(_ title: String, message: String) {
         let notification = NSUserNotification()
         
         notification.title = title
@@ -48,5 +52,13 @@ class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
         notification.soundName = NSUserNotificationDefaultSoundName
         
         NSUserNotificationCenter.default.deliver(notification)
-        
-    }}
+    }
+    
+    func sendTwilio(_ title: String, message: String) {
+        TwilioService.shared.send(title, message: message)
+    }
+    
+    func sendSlack(_ title: String, message: String) {
+        fatalError("Not implemented")
+    }
+}

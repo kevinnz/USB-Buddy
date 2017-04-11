@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		BEEDFE241E9B714E006BB1D5 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE231E9B714E006BB1D5 /* Empty.m */; };
 		BEEDFE261E9B71C2006BB1D5 /* USBWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE251E9B71C2006BB1D5 /* USBWatcher.swift */; };
 		BEEDFE281E9B729F006BB1D5 /* Watcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE271E9B729F006BB1D5 /* Watcher.swift */; };
+		BEEDFE2B1E9CC4A4006BB1D5 /* TwilioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE2A1E9CC4A3006BB1D5 /* TwilioService.swift */; };
+		BEEDFE2D1E9CCCB0006BB1D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE2C1E9CCCB0006BB1D5 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		BEEDFE251E9B71C2006BB1D5 /* USBWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USBWatcher.swift; sourceTree = "<group>"; };
 		BEEDFE271E9B729F006BB1D5 /* Watcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watcher.swift; sourceTree = "<group>"; };
 		BEEDFE291E9B75C9006BB1D5 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		BEEDFE2A1E9CC4A3006BB1D5 /* TwilioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwilioService.swift; sourceTree = "<group>"; };
+		BEEDFE2C1E9CCCB0006BB1D5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				BEEDFE221E9B714E006BB1D5 /* USB Buddy-Bridging-Header.h */,
 				BEEDFE251E9B71C2006BB1D5 /* USBWatcher.swift */,
 				BEEDFE271E9B729F006BB1D5 /* Watcher.swift */,
+				BEEDFE2A1E9CC4A3006BB1D5 /* TwilioService.swift */,
+				BEEDFE2C1E9CCCB0006BB1D5 /* Extensions.swift */,
 				BEEDFE291E9B75C9006BB1D5 /* MyPlayground.playground */,
 			);
 			path = "USB Buddy";
@@ -118,14 +124,13 @@
 				TargetAttributes = {
 					BEEDFE0C1E9B6671006BB1D5 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = LX7HK8V3RS;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = BEEDFE081E9B6671006BB1D5 /* Build configuration list for PBXProject "USB Buddy" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -160,10 +165,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEEDFE241E9B714E006BB1D5 /* Empty.m in Sources */,
+				BEEDFE2B1E9CC4A4006BB1D5 /* TwilioService.swift in Sources */,
 				BEEDFE131E9B6671006BB1D5 /* ViewController.swift in Sources */,
 				BEEDFE281E9B729F006BB1D5 /* Watcher.swift in Sources */,
 				BEEDFE111E9B6671006BB1D5 /* AppDelegate.swift in Sources */,
 				BEEDFE261E9B71C2006BB1D5 /* USBWatcher.swift in Sources */,
+				BEEDFE2D1E9CCCB0006BB1D5 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +336,7 @@
 				BEEDFE1E1E9B6671006BB1D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
