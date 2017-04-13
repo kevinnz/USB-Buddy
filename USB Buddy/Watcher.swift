@@ -13,8 +13,10 @@ class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
     var showNote = false
     var useTwilio = false
     var useSlack = false
+    var slackbot: SlackService?
     
     private var usbWatcher: USBWatcher!
+    
     override init() {
         super.init()
         usbWatcher = USBWatcher(delegate: self)
@@ -41,6 +43,10 @@ class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
         if useTwilio {
             sendTwilio(title, message: message)
         }
+        
+        if useSlack {
+            sendSlack(title, message: message)
+        }
     }
 
     func localNotification(_ title: String, message: String) {
@@ -59,6 +65,7 @@ class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
     }
     
     func sendSlack(_ title: String, message: String) {
-        fatalError("Not implemented")
+        let settings = SlackServiceSettings()
+        slackbot?.runBot(message: "\(title): \(message)", theChannel: settings.channel)
     }
 }
