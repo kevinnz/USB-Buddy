@@ -44,7 +44,7 @@ To use the Slack integration you will need to [setup a bot user](https://api.sla
 
 ## License
 
-This project is licensed under the GNU GPLv3 License - see the [LICENSE.txt](LICENSE.txt) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](LICENSE.txt) file for details.
 
 ## Acknowledgements
 
