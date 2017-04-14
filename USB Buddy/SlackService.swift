@@ -34,19 +34,13 @@ class SlackService: MessageEventsDelegate {
     func deleted(_ message: Message?, client: Client) {}
     
     func runBot(message: String, theChannel: String) {
-        print(bot.clients.count)
         bot.clients.forEach { (key: String, client: Client) in
             do {
                 let channelID = try client.getChannelIDWith(name: theChannel)
-                print("ChannelID for \(theChannel) is \(channelID)")
                 client.send(message: message, channelID: channelID)
             } catch {
                 print(error as NSError)
             }
-            client.channels.forEach { (key: String, channel: Channel) in
-                print("\(key) - \(channel.name ?? "" )")
-            }
-        
         }
     }
     

@@ -24,6 +24,11 @@ class PreferencesViewController: NSViewController {
     
     // actions
     @IBAction func alertUnlockedAction(_ sender: Any) {
+        if showUnlocked.state == NSOnState {
+            appSettings.alertWhenUnlocked = true
+        } else {
+            appSettings.alertWhenUnlocked = false
+        }
     }
     
     @IBAction func useTwilioAction(_ sender: Any) {
@@ -36,7 +41,9 @@ class PreferencesViewController: NSViewController {
     }
     
     
-    var appSettings : AppSetttngs?
+    var appSettings : AppSetttngs {
+        return AppSetttngs.shared
+    }
     
     class func loadFromStoryboard() -> PreferencesViewController? {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -46,22 +53,31 @@ class PreferencesViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("\(type(of:self)) viewDidLoad")
         title = "Preferences"
         displaySettings()
     }
 
     override func viewDidDisappear() {
-        
+        updateSettings()
     }
     
     private func displaySettings() {
-        showUnlocked.state = (appSettings?.alertWhenUnlocked)! ? NSOnState : NSOffState
-        useTwilio.state = (appSettings?.useTwilio)! ? NSOnState : NSOffState
-        useSlack.state = (appSettings?.useSlack)! ? NSOnState : NSOffState
+        showUnlocked.state = appSettings.alertWhenUnlocked ? NSOnState : NSOffState
+        useTwilio.state = appSettings.useTwilio ? NSOnState : NSOffState
+        useSlack.state = appSettings.useSlack ? NSOnState : NSOffState
         changeTwilio(state: useTwilio.state)
         changeSlack(state: useSlack.state)
+        if let twiloSettings = appSettings.twilioSettings {
+            accountSIDField.stringValue = twiloSettings.accountSID
+            authTokenField.stringValue = twiloSettings.authToken
+            toNumberField.stringValue = twiloSettings.toNumber
+            fromNumberField.stringValue = twiloSettings.fromNumber
+        }
+        if let slackSettings = appSettings.slackSettings {
+            slackChannelField.stringValue = slackSettings.channel
+            slackApiField.stringValue = slackSettings.apiToken
+        }
+        
     }
     
     private func changeTwilio(state: Int) {
@@ -71,11 +87,13 @@ class PreferencesViewController: NSViewController {
             authTokenField.isEnabled = true
             toNumberField.isEnabled = true
             fromNumberField.isEnabled = true
+            appSettings.useTwilio = true
         case NSOffState:
             accountSIDField.isEnabled = false
             authTokenField.isEnabled = false
             toNumberField.isEnabled = false
             fromNumberField.isEnabled = false
+            appSettings.useTwilio = false
         default:
             fatalError("Invalid display state")
         }
@@ -86,17 +104,27 @@ class PreferencesViewController: NSViewController {
         case NSOnState:
             slackChannelField.isEnabled = true
             slackApiField.isEnabled = true
+            appSettings.useSlack = true
         case NSOffState:
             slackChannelField.isEnabled = false
             slackApiField.isEnabled = false
+            appSettings.useSlack = false
         default:
             fatalError("Invalid display state")
         }
     }
-
     
     private func updateSettings() {
-        
+        if var twilioSettings = appSettings.twilioSettings {
+            twilioSettings.accountSID = accountSIDField.stringValue
+            twilioSettings.authToken = authTokenField.stringValue
+            twilioSettings.fromNumber = fromNumberField.stringValue
+            twilioSettings.toNumber = toNumberField.stringValue
+        }
+        if var slackSettings = appSettings.slackSettings {
+            slackSettings.channel = slackChannelField.stringValue
+            slackSettings.apiToken = slackApiField.stringValue
+        }
     }
     
 }

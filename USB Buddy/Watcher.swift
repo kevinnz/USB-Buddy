@@ -10,12 +10,37 @@ import AppKit
 
 class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
     
-    var showNote = false
-    var useTwilio = false
-    var useSlack = false
+    var appSettings: AppSetttngs {
+        return AppSetttngs.shared
+    }
     var slackbot: SlackService?
     var screenLocked = false
     
+    private var showNote: Bool {
+        let alert = appSettings.alertWhenUnlocked
+        return alert && !screenLocked
+    }
+    
+    private var useTwilio: Bool {
+        if appSettings.useTwilio && screenLocked {
+            return true
+        }
+        if appSettings.useTwilio && appSettings.alertWhenUnlocked {
+            return true
+        }
+        return false
+    }
+
+    private var useSlack: Bool {
+        if appSettings.useSlack && screenLocked {
+            return true
+        }
+        if appSettings.useSlack && appSettings.alertWhenUnlocked {
+            return true
+        }
+        return false
+    }
+
     private var usbWatcher: USBWatcher!
     
     override init() {

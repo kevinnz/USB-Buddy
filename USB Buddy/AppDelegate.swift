@@ -18,31 +18,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let twilioService = TwilioService.shared
     
     let slackService = SlackService(settings: SlackServiceSettings())
-    let appSettings = AppSetttngs()
+    let appSettings = AppSetttngs.shared
+    
     
     var windowController : NSWindowController?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-            button.image = NSImage(named: "StatusBarButtonImage")
+            button.image = NSImage(named: "USBImage")
             button.action = #selector(AppDelegate.buttonWasPressed)
         }
         
         let menu = NSMenu()
         
-        menu.addItem(NSMenuItem(title: "Test Slack", action: #selector(AppDelegate.action1(sender:)), keyEquivalent: "s"))
-        menu.addItem(NSMenuItem(title: "Test Twilio", action: #selector(AppDelegate.action2(sender:)), keyEquivalent: "t"))
         menu.addItem(NSMenuItem(title: "Preferences", action: #selector(AppDelegate.showPreferences(sender:)), keyEquivalent: "p"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit USB Buddy", action: #selector(AppDelegate.terminate(sender:)), keyEquivalent: "q"))
         
         statusItem.menu = menu
         
-        loadSettings()
-
-        watcher.showNote = true
-        watcher.useTwilio = true
-        watcher.useSlack = true
         watcher.slackbot = slackService
         
         center.addObserver(self, selector: #selector(self.screenIsLocked), name: NSNotification.Name(rawValue: "com.apple.screenIsLocked")  , object: nil)
@@ -64,19 +58,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here
     }
     
-    func action1(sender: AnyObject) {
-        slackService.runBot(message: "test", theChannel: "usbwatcher")
-    }
-    
-    func action2(sender: AnyObject) {
-         twilioService.send("test", message: "message")
-    }
-
     func showPreferences(sender: AnyObject) {
      
         let storyboard = NSStoryboard(name: "Main",bundle: nil)
         let vc = storyboard.instantiateController(withIdentifier: "PreferencesViewController") as! PreferencesViewController
-        vc.appSettings = appSettings
+       
         let myWindow = NSWindow(contentViewController: vc )
         myWindow.styleMask = [ .closable, .titled]
         myWindow.makeKeyAndOrderFront(self)
@@ -90,12 +76,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func screenIsLocked() {
-        print("Screen is locked")
         watcher.screenLocked = true
     }
     
     func screenIsUnlocked() {
-        print("Screen is Unlocked")
         watcher.screenLocked = false
     }
 }
