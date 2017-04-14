@@ -1,5 +1,9 @@
 # USB Buddy
 
+![Swift Version](https://img.shields.io/badge/Swift-3.1.0-orange.svg) 
+![Plaforms](https://img.shields.io/badge/Platforms-macOS-lightgrey.svg) 
+![License Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)
+
 USB Buddy is a MacOS tool that monitors USB devices. In the case it detects someone plugging in or unplugging devices it can be configured to send you an SMS 
 or alert you via Slack of the potential security breach. I have based this tool off https://github.com/probablynotablog/usb-canary thanks [errbufferoverfl](https://github.com/errbufferoverfl)
 
@@ -49,3 +53,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](LI
 ## Acknowledgements
 
 - [errbufferoverfl](https://github.com/errbufferoverfl) - for creating `USB Canary`
+
+## Get In Touch
+[@kevinnz](https://twitter.com/kevinnz)
