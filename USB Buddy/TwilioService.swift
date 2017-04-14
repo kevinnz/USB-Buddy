@@ -8,13 +8,7 @@
 
 import Foundation
 
-struct TwilioSettings {
-    var accountSID : String
-    var authToken: String
-    var toNumber: String
-    var fromNumber: String
-    
-}
+
 
 class TwilioService {
     static let shared = TwilioService()

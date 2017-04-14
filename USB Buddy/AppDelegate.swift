@@ -18,6 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let twilioService = TwilioService.shared
     
     let slackService = SlackService(settings: SlackServiceSettings())
+    let appSettings = AppSetttngs()
+    
+    var windowController : NSWindowController?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
@@ -29,14 +32,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         menu.addItem(NSMenuItem(title: "Test Slack", action: #selector(AppDelegate.action1(sender:)), keyEquivalent: "s"))
         menu.addItem(NSMenuItem(title: "Test Twilio", action: #selector(AppDelegate.action2(sender:)), keyEquivalent: "t"))
+        menu.addItem(NSMenuItem(title: "Preferences", action: #selector(AppDelegate.showPreferences(sender:)), keyEquivalent: "p"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit USB Buddy", action: #selector(AppDelegate.terminate(sender:)), keyEquivalent: "q"))
         
         statusItem.menu = menu
         
         loadSettings()
-        
-        
+
         watcher.showNote = true
         watcher.useTwilio = true
         watcher.useSlack = true
@@ -69,18 +72,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          twilioService.send("test", message: "message")
     }
 
+    func showPreferences(sender: AnyObject) {
+     
+        let storyboard = NSStoryboard(name: "Main",bundle: nil)
+        let vc = storyboard.instantiateController(withIdentifier: "PreferencesViewController") as! PreferencesViewController
+        vc.appSettings = appSettings
+        let myWindow = NSWindow(contentViewController: vc )
+        myWindow.styleMask = [ .closable, .titled]
+        myWindow.makeKeyAndOrderFront(self)
+        windowController = NSWindowController(window: myWindow)
+        windowController?.showWindow(self)
+        
+    }
+    
     func terminate(sender: AnyObject) {
         NSApplication.shared().terminate(sender)
     }
 
     func screenIsLocked() {
         print("Screen is locked")
-        screenLocked = true
+        watcher.screenLocked = true
     }
     
     func screenIsUnlocked() {
         print("Screen is Unlocked")
-        screenLocked = false
+        watcher.screenLocked = false
     }
 }
 

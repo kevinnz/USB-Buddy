@@ -14,6 +14,7 @@ class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
     var useTwilio = false
     var useSlack = false
     var slackbot: SlackService?
+    var screenLocked = false
     
     private var usbWatcher: USBWatcher!
     

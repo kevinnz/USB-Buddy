@@ -11,6 +11,8 @@
 		BE4E495A1E9F6CF100EB2D03 /* SlackKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE4E49591E9F6CF100EB2D03 /* SlackKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE4E495C1E9F6CFB00EB2D03 /* Starscream.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE4E495B1E9F6CFB00EB2D03 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE4E495E1E9F6D0200EB2D03 /* Swifter.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE4E495D1E9F6D0200EB2D03 /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE4E49601EA041E000EB2D03 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E495F1EA041E000EB2D03 /* PreferencesViewController.swift */; };
+		BE4E49621EA058B400EB2D03 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E49611EA058B400EB2D03 /* Settings.swift */; };
 		BEEDFE111E9B6671006BB1D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE101E9B6671006BB1D5 /* AppDelegate.swift */; };
 		BEEDFE131E9B6671006BB1D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDFE121E9B6671006BB1D5 /* ViewController.swift */; };
 		BEEDFE151E9B6671006BB1D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEDFE141E9B6671006BB1D5 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		BE4E49591E9F6CF100EB2D03 /* SlackKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlackKit.framework; path = Carthage/Build/Mac/SlackKit.framework; sourceTree = "<group>"; };
 		BE4E495B1E9F6CFB00EB2D03 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/Mac/Starscream.framework; sourceTree = "<group>"; };
 		BE4E495D1E9F6D0200EB2D03 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/Mac/Swifter.framework; sourceTree = "<group>"; };
+		BE4E495F1EA041E000EB2D03 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		BE4E49611EA058B400EB2D03 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		BEEDFE0D1E9B6671006BB1D5 /* USB Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEDFE101E9B6671006BB1D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEEDFE121E9B6671006BB1D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +103,11 @@
 				BEEDFE191E9B6671006BB1D5 /* Info.plist */,
 				BEEDFE221E9B714E006BB1D5 /* USB Buddy-Bridging-Header.h */,
 				BEEDFE251E9B71C2006BB1D5 /* USBWatcher.swift */,
+				BE4E495F1EA041E000EB2D03 /* PreferencesViewController.swift */,
 				BEEDFE271E9B729F006BB1D5 /* Watcher.swift */,
 				BEEDFE2A1E9CC4A3006BB1D5 /* TwilioService.swift */,
 				BE4E494B1E9EB46A00EB2D03 /* SlackService.swift */,
+				BE4E49611EA058B400EB2D03 /* Settings.swift */,
 				BEEDFE2C1E9CCCB0006BB1D5 /* Extensions.swift */,
 				BEEDFE291E9B75C9006BB1D5 /* MyPlayground.playground */,
 			);
@@ -213,8 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEEDFE241E9B714E006BB1D5 /* Empty.m in Sources */,
+				BE4E49601EA041E000EB2D03 /* PreferencesViewController.swift in Sources */,
 				BEEDFE2B1E9CC4A4006BB1D5 /* TwilioService.swift in Sources */,
 				BEEDFE131E9B6671006BB1D5 /* ViewController.swift in Sources */,
+				BE4E49621EA058B400EB2D03 /* Settings.swift in Sources */,
 				BEEDFE281E9B729F006BB1D5 /* Watcher.swift in Sources */,
 				BE4E494C1E9EB46A00EB2D03 /* SlackService.swift in Sources */,
 				BEEDFE111E9B6671006BB1D5 /* AppDelegate.swift in Sources */,

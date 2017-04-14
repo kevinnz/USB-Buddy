@@ -9,11 +9,7 @@
 import Foundation
 import SlackKit
 
-struct SlackServiceSettings {
-    private(set) var channel = "usbwatcher"
-    private(set) var apiToken = "xoxb-XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    
-}
+
 
 class SlackService: MessageEventsDelegate {
 
