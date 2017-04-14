@@ -41,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         center.addObserver(self, selector: #selector(self.screenIsLocked), name: NSNotification.Name(rawValue: "com.apple.screenIsLocked")  , object: nil)
         center.addObserver(self, selector: #selector(self.screenIsUnlocked), name: NSNotification.Name(rawValue: "com.apple.screenIsUnlocked")  , object: nil)
-        // put in creds for Twilio
+        
        
     }
  

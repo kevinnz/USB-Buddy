@@ -80,7 +80,7 @@ class Watcher: NSObject, USBWatcherDelegate, NSUserNotificationCenterDelegate {
         
         notification.title = title
         notification.informativeText = message
-        notification.contentImage = NSImage(named: "USBImage")
+        notification.contentImage = NSImage(named: "USBNoteImage")
         notification.soundName = NSUserNotificationDefaultSoundName
         
         NSUserNotificationCenter.default.deliver(notification)

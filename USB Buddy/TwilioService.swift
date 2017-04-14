@@ -13,13 +13,13 @@ import Foundation
 class TwilioService {
     static let shared = TwilioService()
 
-    var settings: TwilioSettings?
     
     func send(_ title: String, message: String) {
-        guard let accountSID = settings?.accountSID,
-            let authToken = settings?.authToken,
-            let toNumber = settings?.toNumber,
-            let fromNumber = settings?.fromNumber else { return }
+        let appSettings = AppSetttngs.shared
+        guard let accountSID = appSettings.twilioSettings?.accountSID,
+            let authToken = appSettings.twilioSettings?.authToken,
+            let toNumber = appSettings.twilioSettings?.toNumber,
+            let fromNumber = appSettings.twilioSettings?.fromNumber else { return }
         
         let endpoint = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages.json"
         guard let url = URL(string: endpoint) else {
