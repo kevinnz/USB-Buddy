@@ -5,7 +5,7 @@ or alert you via Slack of the potential security breach. I have based this tool 
 
 ## About the Project
 
-I'm not a real hacker and <INSERT JOKE ABOUT The Year of Linux on the desktop>. I run MacOS Seria and the port of USB Carany to Mac is not yet complete. 
+I'm not a real hacker and INSERT JOKE ABOUT The Year of Linux on the desktop. I run MacOS Seria and the port of USB Carany to Mac is not yet complete. 
 I can write a bit of code and have always want to create a nativa Mac Application.  
 
 ### Why are you using 3rd party libraries?
